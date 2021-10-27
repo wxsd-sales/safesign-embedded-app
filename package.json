@@ -1,0 +1,46 @@
+{
+  "name": "first-node-app",
+  "version": "1.0.0",
+  "description": "My first node.js app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "cd client && npm install && npm run build",
+    "cow": "npx cowsay i am cow",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "12.14.0"
+  },
+  "author": "Nivetha Jayakumar",
+  "license": "ISC",
+  "dependencies": {
+    "@reach/router": "^1.3.4",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "cookie-parser": "^1.4.4",
+    "csurf": "^1.10.0",
+    "docusign-click": "^1.0.0",
+    "docusign-esign": "^5.10.0",
+    "docusign-monitor": "^1.0.0-beta",
+    "docusign-rooms": "^1.1.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.16.2",
+    "fs": "0.0.1-security",
+    "fs-extra": "^6.0.1",
+    "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "memorystore": "^1.6.1",
+    "moment": "^2.24.0",
+    "mongodb": "^4.1.0",
+    "node-fetch": "^2.6.1",
+    "passport": "^0.4.0",
+    "passport-docusign": "^1.1.0",
+    "path": "^0.12.7",
+    "react-bootstrap": "^1.6.1",
+    "stream": "0.0.2",
+    "validator": "^10.11.0"
+  }
+}
