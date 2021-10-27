@@ -34,7 +34,6 @@
     "jsonwebtoken": "^8.5.1",
     "memorystore": "^1.6.1",
     "moment": "^2.24.0",
-    "mongodb": "^4.1.0",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.0",
     "passport-docusign": "^1.1.0",

@@ -21,7 +21,7 @@ settings.targetAccountId = process.env.TARGET_ACCOUNT_ID || settings.targetAccou
 settings.sessionSecret = process.env.SESSION_SECRET || settings.sessionSecret;
 settings.production = process.env.PRODUCTION || settings.production;
 settings.privateKey = process.env.PRIVATE_KEY || settings.privateKey;
-settings.mongodbPassword = process.env.MONGODB_PASSWORD || settings.mongodbPassword;
+//settings.mongodbPassword = process.env.MONGODB_PASSWORD || settings.mongodbPassword;
 settings.adminPassword = process.env.ADMIN_PASSWORD || settings.adminPassword;
 
 // const dsOauthServer = settings.production
