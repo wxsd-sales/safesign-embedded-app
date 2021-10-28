@@ -13,8 +13,8 @@ class FamilyForm extends React.Component {
       loadingSigning: false,
       otherEthSelected: false,
       showFillAlert: false,
-      parentName: 'Nivetha Jayakumar',
-      parentEmail: 'nivethajayakumar5@gmail.com',
+      parentName: 'Test name',
+      parentEmail: 'test@gmail.com',
       currentDate: new Date().toLocaleDateString(),
       fieldsNeedFilling: []
     };

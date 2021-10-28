@@ -57,7 +57,7 @@ app.post("/api/login", (req, res, next) => {
   req.dsAuthJwt.login(req, res, next);
 });
 
-app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "employeeInfo"));
+app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "safesignNDA"));
 
 
 // handles submitting a form and putting data to a database collection
