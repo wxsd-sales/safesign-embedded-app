@@ -1,5 +1,5 @@
 import React from "react"
-import {Button, Container, Image, Row, Col} from "react-bootstrap"
+import {Button, Container, Row, Col} from "react-bootstrap"
 
 class LandingPage extends React.Component {
   
