@@ -12,7 +12,8 @@ const express = require('express')
 , csrf = require('csurf') // https://www.npmjs.com/package/csurf
   , eg001 = require('./embeddedSigning')
 , documentInformation = require('./documentInformation')
-, documents = require('./documentsToSign').documents;
+, documents = require('./documentsToSign').documents
+, database = require('./database');
 
 const PORT = process.env.PORT || 3001
   , HOST = process.env.HOST || 'localhost'
@@ -56,9 +57,8 @@ app.post("/api/login", (req, res, next) => {
   req.dsAuthJwt.login(req, res, next);
 });
 
-app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "familyAidInfo"));
+app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "employeeInfo"));
 
-//app.post('/api/eg001/socialworker', (req, res, next) => handleFormSubmission(req, res, next, documents.SOCIAL_WORKER, "childMedicalInfo"));
 
 // handles submitting a form and putting data to a database collection
 async function handleFormSubmission(req, res, next, docType, collectionName) {

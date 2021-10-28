@@ -4,7 +4,7 @@ import MyNav from "./components/navbar/navbar"
 import FamilyForm from "./pages/familyForm/familyForm";
 import LandingPage from './pages/landing/landing'
 import SigningDone from './pages/signingCompleted/signingCompleted'
-//import AdminPage from "./pages/admin/admin";
+import AdminPage from "./pages/admin/admin";
 import { Router } from "@reach/router"
 
 const NotFound = () => (
@@ -21,7 +21,7 @@ function App() {
       <Router>
         <LandingPage path='/'></LandingPage>
         <FamilyForm path='/nda/'></FamilyForm>
-        
+        <AdminPage path='/admin/'></AdminPage>        
         <SigningDone path='/signingDone/'></SigningDone>
         <NotFound default />
       </Router>
@@ -33,4 +33,3 @@ function App() {
 
 export default App;
 
-//AdminPage path='/admin/'></AdminPage>

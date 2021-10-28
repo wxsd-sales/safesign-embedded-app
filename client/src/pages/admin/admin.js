@@ -11,10 +11,10 @@ class AdminPage extends React.Component {
       passwordInput: '',
       loadingSearch: false,
       loadingSearchAll: false,
-      authenticated: false,
+      authenticated: true,
       showFailLogin: false
     }
-    this.handleLogin = this.handleLogin.bind(this);
+    //this.handleLogin = this.handleLogin.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.triggerSearch = this.triggerSearch.bind(this);
     this.triggerSearchAll = this.triggerSearchAll.bind(this);
@@ -22,38 +22,6 @@ class AdminPage extends React.Component {
     this.renderResults = this.renderResults.bind(this);
   }
 
-  handleLogin(event) {
-    try {
-      fetch('/api/adminLogin', 
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify({
-          adminPassword: this.state.passwordInput
-        }),
-        credentials: 'include'
-      })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          Promise.reject();
-        }
-      })
-      .then(data => {
-        if (data.loginSuccess) {
-          this.setState({authenticated: true});
-        } else {
-          this.setState({showFailLogin: true});
-        }
-      })
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   handleInputChange(event) {
     const target = event.target;
@@ -184,10 +152,10 @@ class AdminPage extends React.Component {
   }
 
   /**
-   * Maps patient information to a two column Table, and gets patient name for belonging group
+   * Maps user information to a two column Table, and gets user name for belonging group
    * 
-   * @param {object} doc The document containing all patient information in the form of json
-   * @return {object} The Table and corresponding patient name
+   * @param {object} doc The document containing all user information in the form of json
+   * @return {object} The Table and corresponding user name
    */
   patientDocumentToTable(doc) {
     let patientName;
@@ -241,14 +209,14 @@ class AdminPage extends React.Component {
                       <span className="visually-hidden">Loading...</span>
                     </Spinner>);
     } else {
-      searchAllDisp = 'Display all patients'
+      searchAllDisp = 'Display all employees'
     }
     if (this.state.authenticated) {
       return  (
         <Container id="">
-          <div id='form-header'>Search Patients</div>
+          <div id='form-header'>Employee NDA Information</div>
           <InputGroup size="lg" >
-            <InputGroup.Text id="inputGroup-sizing-lg">Patient Name</InputGroup.Text>
+            <InputGroup.Text id="inputGroup-sizing-lg">Search Employees</InputGroup.Text>
             <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" value={this.state.patientName} onChange={this.handleInputChange} name="patientName"/>
           </InputGroup>
           <Button variant="secondary" onClick={this.triggerSearchAll} className="form-button">{searchAllDisp}</Button>
@@ -258,24 +226,25 @@ class AdminPage extends React.Component {
       )
     } else {
       // demo: admin password as 1234 with placeholder
-      return (
-        <Container id="">
-          <Row>
-            <Col></Col>
-            <Col xs={6}>
-              <div id='form-header'>Admin Portal</div>
-              <InputGroup size="sm" >
-                <InputGroup.Text id="inputGroup-sizing-sm">Password</InputGroup.Text>
-                <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" value={this.state.passwordInput} onChange={this.handleInputChange} name="passwordInput"
-                placeholder="1234 (for demonstration)"/>
-              </InputGroup>
-              <Button variant="warning" onClick={this.handleLogin} className="form-button">Login</Button>
-              {this.state.showFailLogin ? <h4>Incorrect password.</h4> : <span></span>}
-            </Col>
-          <Col></Col>
-          </Row>
-        </Container>
-      )
+      console.log("authenticated manually")
+      //return (
+        // <Container id="">
+        //   <Row>
+        //     <Col></Col>
+        //     <Col xs={6}>
+        //       <div id='form-header'>Admin Portal</div>
+        //       <InputGroup size="sm" >
+        //         <InputGroup.Text id="inputGroup-sizing-sm">Password</InputGroup.Text>
+        //         <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" value={this.state.passwordInput} onChange={this.handleInputChange} name="passwordInput"
+        //         placeholder="1234 (for demonstration)"/>
+        //       </InputGroup>
+        //       <Button variant="warning" onClick={this.handleLogin} className="form-button">Login</Button>
+        //       {this.state.showFailLogin ? <h4>Incorrect password.</h4> : <span></span>}
+        //     </Col>
+        //   <Col></Col>
+        //   </Row>
+        // </Container>
+      //)
     }
     
   }
