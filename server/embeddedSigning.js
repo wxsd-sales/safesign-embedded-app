@@ -93,7 +93,9 @@ eg001EmbeddedSigning.worker = async (args) => {
     results = await envelopesApi.createEnvelope(args.accountId, { envelopeDefinition: envelope });
 
     let envelopeId = results.envelopeId;
+    
     console.log(`Envelope was created. EnvelopeId ${envelopeId}`);
+    console.log(results);
 
     // create the recipient view, the embedded signing
     let viewRequest = makeRecipientViewRequest(args);

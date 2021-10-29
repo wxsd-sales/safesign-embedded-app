@@ -79,6 +79,7 @@ documentInformation.makeDocDetails = (doc, req, res) => {
       prefillVals.parentName = body.parentName;
       prefillVals.parentEmail = body.parentEmail;
       prefillVals.currentDate = new Date().toLocaleDateString();
+      prefillVals.submissionStatus = "undefined"
 
       // document recipients, must have at least name and email
       recipients.signers = [

@@ -28,3 +28,29 @@ database.populateAidInfo = async (info, collectionName) => {
         await client.close();
     }
 }
+
+database.submissionStatus = async (info, collectionName) => {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+    
+        const db = client.db("docusignDev");
+        const col = db.collection(collectionName);
+        
+        // Insert a single document
+        const status = await col.update({parentEmail: info.parentEmail},{$set:{submissionStatus: "decline"}})
+        console.log('Successfully updated the status');
+        // Find one document
+        // const myDoc = await col.findOne();
+        // // Print to the console
+        // console.log(myDoc);
+    } catch (err) {
+        console.log(err.stack);
+    }
+    
+    finally {
+        await client.close();
+    }
+}
+
+

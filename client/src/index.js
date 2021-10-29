@@ -8,15 +8,15 @@ import EmbeddedAppSDK from './EmbeddedAppSDK';
 
 const embeddedAppSDK = new EmbeddedAppSDK();
 
-// embeddedAppSDK.onReady().then(() => {
-//   console.log("My app is running 🎉")
+embeddedAppSDK.onReady().then(() => {
+  console.log("My app is running 🎉")
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <App embeddedAppSDK={embeddedAppSDK}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
-// })
+})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

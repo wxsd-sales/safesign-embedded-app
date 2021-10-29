@@ -13,13 +13,13 @@ const NotFound = () => (
   </div>
 );
 
-function App() {
+function App(props) {
 
   return (
     <div className="App">
       <MyNav></MyNav>
       <Router>
-        <LandingPage path='/'></LandingPage>
+        <LandingPage path='/' embeddedAppSDK={props.embeddedAppSDK}></LandingPage>
         <FamilyForm path='/nda/'></FamilyForm>
         <AdminPage path='/admin/'></AdminPage>        
         <SigningDone path='/signingDone/'></SigningDone>

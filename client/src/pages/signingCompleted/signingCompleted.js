@@ -14,7 +14,6 @@ class SigningDone extends React.Component {
 
   render() {
     let showSignResult;
-    console.log("here")
     switch (this.state.signResult) {
       case 'cancel':
         showSignResult = (
@@ -23,6 +22,7 @@ class SigningDone extends React.Component {
           <h3>If unintentional, please resubmit form.</h3>
         </div>
         )
+        console.log("sign result: ", this.state.signResult)
         break;
       case 'decline':
         showSignResult = (
@@ -31,9 +31,11 @@ class SigningDone extends React.Component {
             <h3>If unintentional, please resubmit form.</h3>
           </div>
           )
+          console.log("sign result: ", this.state.signResult)
         break;
       default:
         showSignResult = <h1>Thank you!</h1>;
+        console.log("sign result: ", this.state.signResult)
     }
     return (
       <header className='App-header'>

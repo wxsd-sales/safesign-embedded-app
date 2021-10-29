@@ -57,12 +57,16 @@ app.post("/api/login", (req, res, next) => {
   req.dsAuthJwt.login(req, res, next);
 });
 
-app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "safesignNDA"));
-
+app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "user"));
+//app.post('/api/user', (req, res, next) => handleSubmissionStatus(req, res, next, "user"));
 
 // handles submitting a form and putting data to a database collection
 async function handleFormSubmission(req, res, next, docType, collectionName) {
   const docDetails = documentInformation.makeDocDetails(docType, req, res);
+  console.log("-----------------------------------------------------------");
+  console.log(docType)
+  console.log("-----------------------------------------------------------");
+  console.log(docDetails.prefillVals)
 
   await eg001.createController(req, res, docDetails.docPath, docDetails.displayName, docDetails.prefillVals, docDetails.dsTabs, docDetails.recipients)
   .then(() => database.populateAidInfo(docDetails.prefillVals, collectionName))
@@ -70,6 +74,12 @@ async function handleFormSubmission(req, res, next, docType, collectionName) {
     res.statusCode = 400;
     next();
   });
+}
+
+// handles the status of the form
+
+async function handleSubmissionStatus(req, res, next, collectionName) {
+  database.submissionStatus(docDetails.prefillVals, collectionName)
 }
 
 
