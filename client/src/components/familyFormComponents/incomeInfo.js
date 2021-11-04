@@ -22,9 +22,7 @@ class IncomeInformation extends React.Component {
     event.preventDefault();
     this.props.submitForm();
   }
-
   
-
   render() {
     let buttonDisp;
 
