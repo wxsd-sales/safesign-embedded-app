@@ -1,5 +1,5 @@
 import React from "react"
-import { FormControl, InputGroup, Button, Container, Table, Accordion, Badge, Spinner, Row, Col } from "react-bootstrap";
+import { FormControl, InputGroup, Button, Container, Table, Accordion, Badge, Spinner } from "react-bootstrap";
 
 class AdminPage extends React.Component {
 

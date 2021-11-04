@@ -5,7 +5,10 @@ class IncomeInformation extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {showFillAlert: false}
+    this.state = {
+      showFillAlert: false,
+      displayName: ''
+    }
     this.back = this.back.bind(this);
     this.submit = this.submit.bind(this);
   }
@@ -20,8 +23,11 @@ class IncomeInformation extends React.Component {
     this.props.submitForm();
   }
 
+  
+
   render() {
     let buttonDisp;
+
     if (this.props.values.loadingSigning) {
       buttonDisp = (
         <Button variant="success" disabled>
@@ -37,7 +43,6 @@ class IncomeInformation extends React.Component {
         </Button>
       );
     }
-
     let fillAlert;
     if (this.props.values.showFillAlert) {
       fillAlert = (
@@ -51,6 +56,8 @@ class IncomeInformation extends React.Component {
       </Alert>
       )
     }
+
+  
     
     return (
       <Row>
@@ -62,19 +69,17 @@ class IncomeInformation extends React.Component {
             <Form>
               <Form.Group as={Col}>
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Adam" name="parentName"
+                <Form.Control type="text" name="parentName" value={this.props.displayName}
                  onChange={this.props.handleChange} required/>
               </Form.Group>
             <Form.Group as={Col} >
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" name="parentEmail" onChange={this.props.handleChange} required/>
+              <Form.Control type="email" name="parentEmail" value={this.props.displayEmail} onChange={this.props.handleChange} required/>
             </Form.Group>
-
             <Form.Group as={Col} >
               <Form.Label>Date</Form.Label>
               <Form.Control type="date" placeholder="Date" name="currentDate" defaultValue={new Date().toLocaleDateString()} onChange={this.props.handleChange} required/>
             </Form.Group>
-
               {buttonDisp}
             </Form>
             </Card.Body>

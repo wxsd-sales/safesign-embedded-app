@@ -20,7 +20,7 @@ function App(props) {
       <MyNav></MyNav>
       <Router>
         <LandingPage path='/' embeddedAppSDK={props.embeddedAppSDK}></LandingPage>
-        <FamilyForm path='/nda/'></FamilyForm>
+        <FamilyForm path='/nda/' embeddedAppSDK={props.embeddedAppSDK}></FamilyForm>
         <AdminPage path='/admin/'></AdminPage>        
         <SigningDone path='/signingDone/'></SigningDone>
         <NotFound default />

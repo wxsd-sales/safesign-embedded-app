@@ -8,12 +8,12 @@ class FamilyForm extends React.Component {
     super(props);
     // demo: initalizing state to pre-filled values
     this.state = {
-      step: 3, 
+      step: 1, 
       signingUrl: '', 
       loadingSigning: false,
       otherEthSelected: false,
       showFillAlert: false,
-      parentName: 'Test name',
+      parentName: '',
       parentEmail: 'test@gmail.com',
       currentDate: new Date().toLocaleDateString(),
       fieldsNeedFilling: []
@@ -23,27 +23,43 @@ class FamilyForm extends React.Component {
     this.prevPage = this.prevPage.bind(this);
     this.runSigning = this.runSigning.bind(this);
     this.dismissFillAlert = this.dismissFillAlert.bind(this);
+    //this.displayName = this.displayName.bind(this);
   }
+
+  // displayName() {
+  //   //e.preventDefault();
+  //   //let displayName = '';
+  //   this.props.embeddedAppSDK.getUser().then((user) => {
+  //     this.setState({
+  //       parentName: user.displayName
+  //     })
+  //     console.log("************dispName function*******************")
+  //     console.log(this.state.parentName)
+  //     console.log(typeof(this.state.parentName))
+  //     //console.log(user.displayName);
+  //   }).catch((error) => {
+  //     console.log("promise error", error);
+  //   }) 
+  // }
+
+
+
 
   handleInputChange(event) {
     const target = event.target;
     const name = target.name;
+    console.log("name inside handle input change", name)
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // handle option to input other ethnicity
-    // if (name === 'childEthnicity' && value === 'Other') {
-    //   this.setState({otherEthSelected: true});
-    // } else if (this.state.otherEthSelected && name === 'childEthnicity'
-    //             && value !== 'Other' && target.className === 'form-select') {
-    //   this.setState({otherEthSelected: false});
-    // }
+   
     
     this.setState({
       [name]: value
     });
-  }
+  } 
 
   async runSigning (event) {
     // get information about unfilled fields to user, if necessary
+    console.log("run signing")
     const inputVals = {
       'Employee\'s Name': this.state.parentName,
       'Employee\'s email': this.state.parentEmail,
@@ -139,17 +155,32 @@ class FamilyForm extends React.Component {
   dismissFillAlert() {
     this.setState({showFillAlert: false});
   }
+
+
+  componentDidMount() {
+    this.props.embeddedAppSDK.getUser().then((user) => {
+      console.log(user)
+      this.setState({
+        parentName: user.displayName,
+        parentEmail: user.email
+      })
+    })
+  }
   
   render() {
     let curForm;
+    
     switch (this.state.step) {
-      case 3:
+      case 1:
         curForm = <IncomeInformation
                 handleChange = {this.handleInputChange}
                 prevPage = {this.prevPage}
                 submitForm = {this.runSigning}
                 dismissFillAlert = {this.dismissFillAlert}
                 values = {this.state}
+                displayName = {this.state.parentName}
+                displayEmail = {this.state.parentEmail}
+                embeddedAppSDK={this.props.embeddedAppSDK}
                 />
         break;
       default:
@@ -157,7 +188,7 @@ class FamilyForm extends React.Component {
     }
     return (
       <div className='input-page'>
-        <div id='form-header'>NDA information</div>
+        <div id='form-header'>NDA review</div>
         {curForm}
       </div>
     )
