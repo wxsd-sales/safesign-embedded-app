@@ -1,14 +1,15 @@
-#About The Project
+##About The Project
 
-#Flow Diagram
+##Flow Diagram
 
-#Built With
+##Built With
 
-#Prerequisites
+##Prerequisites
 
-#How to Start
+##How to Start
 
-#License
+##License
+Distributed under the MIT License. See `LICENSE` for more information.
 
-#Contact
+##Contact
 Please contact us at wxsd@external.cisco.com
