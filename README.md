@@ -1,23 +1,23 @@
-##About The Project
+## About The Project
 
-##Flow Diagram
+## Flow Diagram
 SafeSign uses ReactJS for the frontend, NodeJS and Express for the backend. This app uses DocuSign SDK to simplify logging in with authentication instead of accessing the eSignature API directly. A MongoDb is set up for storing the meeting participant's information. To integrate it to the Webex meetings, [Embedded Apps SDK](https://developer.webex.com/docs/api/guides/embedded-apps-reference) is used to create different host and participant views.
 
-##Built With
+## Built With
 * ReactJS
 * NodeJS
 * Express
 * DocuSign SDK
 * Embedded Apps SDK
 
-##Prerequisites
+## Prerequisites
 * Create a [docusign developer account](https://go.docusign.com/o/sandbox/?ga=2.70927056.1363819232.1590515244-192278368.1546193875&ECID=20890&elqCampaignId=20890&LS=NA_DEV_BOTH_BetaSite_2020-05&utm_campaign=NA_DEV_BOTH_BetaSite_2020-05&Channel=DDCUS000016968056&cName=DocuSign.com&postActivateUrl=https://developers.docusign.com/) to create an app.
 * Create an app and get integration, secret and private keys.
 * Create a [Webex developer account](https://developer.webex.com/) and create an [Embedded App](https://developer.webex.com/my-apps/new) by giving a valid domain and a start page URL.
 
 
 
-##How to Run the application
+## How to Run the application
 **1.** Clone the project
 ```
 git clone https://github.com/WXSD-Sales/docusign.git
@@ -49,8 +49,8 @@ npm start
 ```
 
 
-##License
+## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
-##Contact
+## Contact
 Please contact us at wxsd@external.cisco.com
