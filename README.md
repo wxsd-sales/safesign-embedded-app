@@ -1,4 +1,5 @@
 ## About The Project
+SafeSign is a Webex Embedded App powered by DocuSign. This app is created for the employees to securely sign a non-disclosure agreement within the meeting without having to switch to a third party app. This app can also be modified to fit other use cases such as financial aid applications in education, real estate credit checks etc.,   
 
 ## Flow Diagram
 SafeSign uses ReactJS for the frontend, NodeJS and Express for the backend. This app uses DocuSign SDK to simplify logging in with authentication instead of accessing the eSignature API directly. A MongoDb is set up for storing the meeting participant's information. To integrate it to the Webex meetings, [Embedded Apps SDK](https://developer.webex.com/docs/api/guides/embedded-apps-reference) is used to create different host and participant views.
@@ -34,7 +35,7 @@ npm install
 
 ### Frontend
 
-**4.** Start your react app to login
+**4.** Start your react app
 ```
 cd client
 npm start
