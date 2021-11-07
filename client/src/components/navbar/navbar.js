@@ -15,13 +15,13 @@ const MyNav = () => {
           <Nav.Link href='/'>
             Home
           </Nav.Link>
-          <Nav.Link href='/admin'>
+          {/* <Nav.Link href='/admin'>
             Admin
-          </Nav.Link>
+          </Nav.Link> */}
         </Nav>
         
         <Navbar.Collapse className="justify-content-end">
-          <Nav.Link href='' style={{color: "#717172"}}>
+          <Nav.Link href='webexteams://im?space=cb8b50a0-2798-11ec-986a-3393309750bc' style={{color: "#717172"}}>
             Webex Solutions Development Team
           </Nav.Link>
         </Navbar.Collapse>

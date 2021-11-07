@@ -21,7 +21,7 @@ function App(props) {
       <Router>
         <LandingPage path='/' embeddedAppSDK={props.embeddedAppSDK}></LandingPage>
         <FamilyForm path='/nda/' embeddedAppSDK={props.embeddedAppSDK}></FamilyForm>
-        <AdminPage path='/admin/'></AdminPage>        
+                
         <SigningDone path='/signingDone/'></SigningDone>
         <NotFound default />
       </Router>
@@ -33,3 +33,4 @@ function App(props) {
 
 export default App;
 
+//<AdminPage path='/admin/'></AdminPage>
