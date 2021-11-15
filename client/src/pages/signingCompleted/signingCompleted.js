@@ -5,10 +5,13 @@ class SigningDone extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("Signing done page")
+    console.log(props);
     this.state = {signResult: ''};
   }
 
   componentDidMount() {
+    this.props.embeddedAppSDK.shareApp(`https://6afb-73-70-239-210.ngrok.io/signingDone`);
     this.setState({signResult: queryString.parse(this.props.location.search).event});
   }
 

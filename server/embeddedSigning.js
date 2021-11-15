@@ -95,7 +95,7 @@ eg001EmbeddedSigning.worker = async (args) => {
     let envelopeId = results.envelopeId;
     
     console.log(`Envelope was created. EnvelopeId ${envelopeId}`);
-    console.log(results);
+    console.log(results.url);
 
     // create the recipient view, the embedded signing
     let viewRequest = makeRecipientViewRequest(args);
@@ -199,6 +199,8 @@ function makeRecipientViewRequest(args) {
     // the DocuSign signing. It's usually better to use
     // the session mechanism of your web framework. Query parameters
     // can be changed/spoofed very easily.
+    console.log("Recipient View")
+    console.log(args.dsReturnUrl)
     viewRequest.returnUrl = args.dsReturnUrl; // + "?state=123";
 
     // How has your app authenticated the user? In addition to your app's

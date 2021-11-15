@@ -4,7 +4,7 @@ import MyNav from "./components/navbar/navbar"
 import FamilyForm from "./pages/familyForm/familyForm";
 import LandingPage from './pages/landing/landing'
 import SigningDone from './pages/signingCompleted/signingCompleted'
-import AdminPage from "./pages/admin/admin";
+//import AdminPage from "./pages/admin/admin";
 import { Router } from "@reach/router"
 
 const NotFound = () => (
@@ -22,7 +22,7 @@ function App(props) {
         <LandingPage path='/' embeddedAppSDK={props.embeddedAppSDK}></LandingPage>
         <FamilyForm path='/nda/' embeddedAppSDK={props.embeddedAppSDK}></FamilyForm>
                 
-        <SigningDone path='/signingDone/'></SigningDone>
+        <SigningDone path='/signingDone/' embeddedAppSDK={props.embeddedAppSDK}></SigningDone>
         <NotFound default />
       </Router>
       
