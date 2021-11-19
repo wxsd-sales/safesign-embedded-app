@@ -27,7 +27,7 @@ settings.adminPassword = process.env.ADMIN_PASSWORD || settings.adminPassword;
 // const dsOauthServer = settings.production
 //   ? 'https://account.docusign.com'
 //   : 'https://account-d.docusign.com';
-const dsOauthServer = 'https://account.docusign.com'
+const dsOauthServer = 'https://account-d.docusign.com'
 
 exports.config = {
   dsOauthServer,

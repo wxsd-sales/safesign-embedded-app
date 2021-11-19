@@ -8,7 +8,7 @@ class LandingPage extends React.Component {
     
     const allowOthers = (event) => {
       event.preventDefault();
-      this.props.embeddedAppSDK.shareApp(`https://ab8a-73-70-239-210.ngrok.io/nda`);
+      this.props.embeddedAppSDK.shareApp(`https://b90f-73-70-239-210.ngrok.io/nda`);
     };
     return (
       <Container id='homeContainer'>
