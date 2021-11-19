@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Col, Card, Form, Button, Spinner, Alert, ListGroup} from 'react-bootstrap';
 
-class IncomeInformation extends React.Component {
+class InputForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -90,4 +90,4 @@ class IncomeInformation extends React.Component {
   }
 }
 
-export default IncomeInformation;
+export default InputForm;

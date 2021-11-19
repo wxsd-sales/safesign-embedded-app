@@ -1,5 +1,5 @@
 import React from "react";
-import IncomeInformation from "../../components/familyFormComponents/incomeInfo";
+import InputForm from "../../components/familyFormComponents/inputform";
 import { navigate } from "@reach/router";
 
 class FamilyForm extends React.Component {
@@ -172,7 +172,7 @@ class FamilyForm extends React.Component {
     
     switch (this.state.step) {
       case 1:
-        curForm = <IncomeInformation
+        curForm = <InputForm
                 handleChange = {this.handleInputChange}
                 prevPage = {this.prevPage}
                 submitForm = {this.runSigning}

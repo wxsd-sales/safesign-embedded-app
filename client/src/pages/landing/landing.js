@@ -8,10 +8,6 @@ class LandingPage extends React.Component {
     
     const allowOthers = (event) => {
       event.preventDefault();
-  
-      // const role = edit ? 'owner' : 'guest';
-      console.log("landing page ----------------------")
-      //console.log(this.props.embeddedAppSDK.getUser())
       this.props.embeddedAppSDK.shareApp(`https://ab8a-73-70-239-210.ngrok.io/nda`);
     };
     return (
@@ -24,12 +20,9 @@ class LandingPage extends React.Component {
             <div>
             <Button href='/nda/' variant="success" onClick={allowOthers}>Get started</Button>
             </div>
-            
             <div id='social-worker-link'>
             New User? <a href='https://go.docusign.com/trial/us-goog-trynow/?elqCampaignId=14921&utm_source=google&utm_medium=cpc&utm_campaign=branded_primary&utm_term=docusign&utm_content=domestic_US&gclid=EAIaIQobChMI8uqE95Ln8wIVwRt9Ch1RjAGLEAAYASAAEgIHOPD_BwE' id="med-form-click-here">Sign up here</a>
             </div>
-            
-            
           </Col>
         </Row>
       </Container>
