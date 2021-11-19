@@ -11,7 +11,7 @@ class SigningDone extends React.Component {
   }
 
   componentDidMount() {
-    this.props.embeddedAppSDK.shareApp(`https://6afb-73-70-239-210.ngrok.io/signingDone`);
+    this.props.embeddedAppSDK.shareApp(`https://ab8a-73-70-239-210.ngrok.io/signingDone`);
     this.setState({signResult: queryString.parse(this.props.location.search).event});
   }
 

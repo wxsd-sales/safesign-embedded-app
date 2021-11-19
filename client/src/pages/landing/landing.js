@@ -12,7 +12,7 @@ class LandingPage extends React.Component {
       // const role = edit ? 'owner' : 'guest';
       console.log("landing page ----------------------")
       //console.log(this.props.embeddedAppSDK.getUser())
-      this.props.embeddedAppSDK.shareApp(`https://6afb-73-70-239-210.ngrok.io/nda`);
+      this.props.embeddedAppSDK.shareApp(`https://ab8a-73-70-239-210.ngrok.io/nda`);
     };
     return (
       <Container id='homeContainer'>
