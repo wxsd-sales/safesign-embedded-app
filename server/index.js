@@ -1,15 +1,15 @@
 const express = require('express')
-, session = require('express-session')  // https://github.com/expressjs/session
+, session = require('express-session')  
 , cookieParser = require('cookie-parser')
-, MemoryStore = require('memorystore')(session) // https://github.com/roccomuso/memorystore
+, MemoryStore = require('memorystore')(session) 
 , path = require('path')
 , DsJwtAuth = require('./DSJwtAuth')
 , passport = require('passport')
 , DocusignStrategy = require('passport-docusign')
 , dsConfig = require('../config/index.js').config
-, helmet = require('helmet') // https://expressjs.com/en/advanced/best-practice-security.html
+, helmet = require('helmet') 
 , moment = require('moment')
-, csrf = require('csurf') // https://www.npmjs.com/package/csurf
+, csrf = require('csurf') 
   , eg001 = require('./embeddedSigning')
 , documentInformation = require('./documentInformation')
 , documents = require('./documentsToSign').documents
@@ -31,7 +31,7 @@ const app = express()
     saveUninitialized: true,
     resave: true,
     store: new MemoryStore({
-      checkPeriod: 86400000 // prune expired entries every 24h
+      checkPeriod: 86400000 
     })
   }))
   .use(passport.initialize())
@@ -58,14 +58,10 @@ app.post("/api/login", (req, res, next) => {
 });
 
 app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "user"));
-//app.post('/api/user', (req, res, next) => handleSubmissionStatus(req, res, next, "user"));
 
 // handles submitting a form and putting data to a database collection
 async function handleFormSubmission(req, res, next, docType, collectionName) {
   const docDetails = documentInformation.makeDocDetails(docType, req, res);
-  console.log("-----------------------------------------------------------");
-  console.log(docType)
-  console.log("-----------------------------------------------------------");
   console.log(docDetails.prefillVals)
 
   await eg001.createController(req, res, docDetails.docPath, docDetails.displayName, docDetails.prefillVals, docDetails.dsTabs, docDetails.recipients)
@@ -111,14 +107,8 @@ let docusignStrategy = new DocusignStrategy({
   clientSecret: dsConfig.dsClientSecret,
   callbackURL: hostUrl + '/ds/callback',
   state: true // automatic CSRF protection.
-    // See https://github.com/jaredhanson/passport-oauth2/blob/master/lib/state/session.js
 },
 function _processDsResult(accessToken, refreshToken, params, profile, done) {
-  // The params arg will be passed additional parameters of the grant.
-  // See https://github.com/jaredhanson/passport-oauth2/pull/84
-  //
-  // Here we're just assigning the tokens to the account object
-  // We store the data in DSAuthCodeGrant.getDefaultAccountInfo
   let user = profile;
   user.accessToken = accessToken;
   user.refreshToken = refreshToken;
@@ -128,12 +118,7 @@ function _processDsResult(accessToken, refreshToken, params, profile, done) {
 }
 );
 
-/**
-* The DocuSign OAuth default is to allow silent authentication.
-* An additional OAuth query parameter is used to not allow silent authentication
-*/
 if (!dsConfig.allowSilentAuthentication) {
-  // See https://stackoverflow.com/a/32877712/64904
   docusignStrategy.authorizationParams = function (options) {
     return { prompt: 'login' };
   }
@@ -144,20 +129,3 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-
-/*
-
-app.post('/api/queryAidInfo', async (req, res, next) => {
-  const queryData = req.body;
-  await database.queryByPatientName(queryData.childName, queryData.searchSingle, res)
-  // propagate to frontend
-  .then(data => {
-    res.json(data);
-  })
-  .catch(error => {
-    res.statusCode = 400;
-    next();
-  });
-})
-
-*/
