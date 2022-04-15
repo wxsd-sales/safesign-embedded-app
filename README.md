@@ -21,7 +21,7 @@ SafeSign uses ReactJS for the frontend, NodeJS and Express for the backend. This
 ## How to Run the application
 **1.** Clone the project
 ```
-git clone https://github.com/WXSD-Sales/docusign.git
+git clone https://github.com/wxsd-sales/safesign-embedded-app.git
 ```
 
 **2.** Install necessary packages
