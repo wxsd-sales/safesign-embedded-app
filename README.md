@@ -11,12 +11,13 @@ SafeSign uses ReactJS for the frontend, NodeJS and Express for the backend. This
 * DocuSign SDK
 * Embedded Apps SDK
 
+## Video Demo
+[![SafeSign Embedded App Video Demo]](https://www.youtube.com/watch?v=fsLORLIB8i8, "SafeSign Embedded App Video Demo")
+
 ## Prerequisites
 * Create a [docusign developer account](https://go.docusign.com/o/sandbox/?ga=2.70927056.1363819232.1590515244-192278368.1546193875&ECID=20890&elqCampaignId=20890&LS=NA_DEV_BOTH_BetaSite_2020-05&utm_campaign=NA_DEV_BOTH_BetaSite_2020-05&Channel=DDCUS000016968056&cName=DocuSign.com&postActivateUrl=https://developers.docusign.com/) to create an app.
 * Create an app and get integration, secret and private keys.
 * Create a [Webex developer account](https://developer.webex.com/) and create an [Embedded App](https://developer.webex.com/my-apps/new) by giving a valid domain and a start page URL.
-
-
 
 ## How to Run the application
 **1.** Clone the project
