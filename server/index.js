@@ -13,7 +13,8 @@ const express = require('express')
   , eg001 = require('./embeddedSigning')
 , documentInformation = require('./documentInformation')
 , documents = require('./documentsToSign').documents
-, database = require('./database');
+, database = require('./database')
+, cors = require('cors');
 
 const PORT = process.env.PORT || 3001
   , HOST = process.env.HOST || 'localhost'
@@ -47,7 +48,9 @@ const app = express()
     req.dsAuthJwt = new DsJwtAuth(req);
     req.dsAuth = req.dsAuthJwt;
     next();
-  });
+  })
+  .use(cors());
+
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));

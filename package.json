@@ -1,7 +1,7 @@
 {
-  "name": "first-node-app",
+  "name": "safesign-server",
   "version": "1.0.0",
-  "description": "My first node.js app",
+  "description": "safesign server",
   "main": "app.js",
   "scripts": {
     "start": "node server/index.js",
@@ -19,6 +19,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
     "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
     "csurf": "^1.10.0",
     "docusign-click": "^1.0.0",
     "docusign-esign": "^5.10.0",

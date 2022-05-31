@@ -6,7 +6,9 @@ LABEL maintainer = ["nivjayak@cisco.com", "nivjayak@cisco.com"]
 WORKDIR /app
 COPY ["package.json", "package-lock.json", "./"]
 RUN npm install
-COPY . .
+#COPY . .
+COPY server/ server/
+COPY config/ config/
 EXPOSE 3001
-
+#CMD ["node", "index.js"]
 CMD ["npm", "start"]

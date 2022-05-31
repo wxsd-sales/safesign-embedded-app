@@ -6,7 +6,9 @@ class FamilyForm extends React.Component {
 
   constructor(props) {
     super(props);
-    // demo: initalizing state to pre-filled values
+    //initalizing state to pre-filled values
+    console.log("---Family form---")
+    console.log(props)
     this.state = {
       step: 1, 
       signingUrl: '', 
@@ -26,23 +28,6 @@ class FamilyForm extends React.Component {
     //this.displayName = this.displayName.bind(this);
   }
 
-  // displayName() {
-  //   //e.preventDefault();
-  //   //let displayName = '';
-  //   this.props.embeddedAppSDK.getUser().then((user) => {
-  //     this.setState({
-  //       parentName: user.displayName
-  //     })
-  //     console.log("************dispName function*******************")
-  //     console.log(this.state.parentName)
-  //     console.log(typeof(this.state.parentName))
-  //     //console.log(user.displayName);
-  //   }).catch((error) => {
-  //     console.log("promise error", error);
-  //   }) 
-  // }
-
-
 
 
   handleInputChange(event) {
@@ -60,6 +45,7 @@ class FamilyForm extends React.Component {
   async runSigning (event) {
     // get information about unfilled fields to user, if necessary
     console.log("run signing")
+    console.log(event);
     const inputVals = {
       'Employee\'s Name': this.state.parentName,
       'Employee\'s email': this.state.parentEmail,
@@ -72,7 +58,7 @@ class FamilyForm extends React.Component {
       }
     }
     // validate email
-    if (!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.parentEmail))) { 
+    if (!(/^[a-zA-Z0-9+.]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.parentEmail))) { 
       inputNotFilled.push('Employee\'s email');
     }
 
@@ -132,6 +118,7 @@ class FamilyForm extends React.Component {
       credentials: 'include'
     })
     .catch(err => {
+      console.log("login failed error");
       console.log(err);
       throw new Error('Login failed');
     });
@@ -157,15 +144,15 @@ class FamilyForm extends React.Component {
   }
 
 
-  componentDidMount() {
-    this.props.embeddedAppSDK.getUser().then((user) => {
-      console.log(user)
-      this.setState({
-        parentName: user.displayName,
-        parentEmail: user.email
-      })
-    })
-  }
+  // componentDidMount() {
+  //   this.props.embeddedAppSDK.getUser().then((user) => {
+  //     console.log(user)
+  //     this.setState({
+  //       parentName: user.displayName,
+  //       parentEmail: user.email
+  //     })
+  //   })
+  // }
   
   render() {
     let curForm;
@@ -180,7 +167,7 @@ class FamilyForm extends React.Component {
                 values = {this.state}
                 displayName = {this.state.parentName}
                 displayEmail = {this.state.parentEmail}
-                embeddedAppSDK={this.props.embeddedAppSDK}
+                // embeddedAppSDK={this.props.embeddedAppSDK}
                 />
         break;
       default:

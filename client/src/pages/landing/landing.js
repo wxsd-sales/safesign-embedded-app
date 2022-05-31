@@ -6,10 +6,10 @@ class LandingPage extends React.Component {
 
   render() {
     
-    const allowOthers = (event) => {
-      event.preventDefault();
-      this.props.embeddedAppSDK.shareApp(`https://b90f-73-70-239-210.ngrok.io/nda`);
-    };
+    // const allowOthers = (event) => {
+    //   event.preventDefault();
+    //   this.props.embeddedAppSDK.shareApp(`https://safesign.wbx.ninja/nda`);
+    // };
     return (
       <Container id='homeContainer'>
         <Row>
@@ -18,7 +18,7 @@ class LandingPage extends React.Component {
               <h1>Welcome to Safe Sign!</h1>
             </div>
             <div>
-            <Button href='/nda/' variant="success" onClick={allowOthers}>Get started</Button>
+            <Button href='/nda/' variant="success" >Get started</Button>
             </div>
             <div id='social-worker-link'>
             New User? <a href='https://go.docusign.com/trial/us-goog-trynow/?elqCampaignId=14921&utm_source=google&utm_medium=cpc&utm_campaign=branded_primary&utm_term=docusign&utm_content=domestic_US&gclid=EAIaIQobChMI8uqE95Ln8wIVwRt9Ch1RjAGLEAAYASAAEgIHOPD_BwE' id="med-form-click-here">Sign up here</a>

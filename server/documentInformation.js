@@ -118,5 +118,4 @@ documentInformation.makeDocDetails = (doc, req, res) => {
     dsTabs: dsTabs, // signHereTabs, dateSignedTabs, checkboxTabs, textTabs
     recipients: recipients // signers
   };
-  // remember doc is just a string
 }

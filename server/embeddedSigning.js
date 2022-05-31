@@ -95,7 +95,8 @@ eg001EmbeddedSigning.worker = async (args) => {
     let envelopeId = results.envelopeId;
     
     console.log(`Envelope was created. EnvelopeId ${envelopeId}`);
-    console.log(results.url);
+    console.log("-------args--------")
+    console.log(args);
 
     // create the recipient view, the embedded signing
     let viewRequest = makeRecipientViewRequest(args);
@@ -213,6 +214,8 @@ function makeRecipientViewRequest(args) {
     viewRequest.email = args.docInfo.docRecipients.signers[0].email;
     viewRequest.userName = args.docInfo.docRecipients.signers[0].name;
     viewRequest.clientUserId = args.signerClientId;
+
+    
 
     // DocuSign recommends that you redirect to DocuSign for the
     // embedded signing. There are multiple ways to save state.

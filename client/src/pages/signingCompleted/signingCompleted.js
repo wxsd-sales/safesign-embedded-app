@@ -11,12 +11,15 @@ class SigningDone extends React.Component {
   }
 
   componentDidMount() {
-    this.props.embeddedAppSDK.shareApp(`https://b90f-73-70-239-210.ngrok.io/signingDone`);
+    
     this.setState({signResult: queryString.parse(this.props.location.search).event});
+    console.log(this.state.signResult);
+    //this.props.embeddedAppSDK.shareApp(`https://safesign.wbx.ninja/signingDone`);
   }
 
   render() {
     let showSignResult;
+    
     switch (this.state.signResult) {
       case 'cancel':
         showSignResult = (
