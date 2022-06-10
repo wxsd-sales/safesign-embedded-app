@@ -15,9 +15,9 @@ const MyNav = () => {
           <Nav.Link href='/'>
             Home
           </Nav.Link>
-          {/* <Nav.Link href='/admin'>
+          <Nav.Link href='/admin'>
             Admin
-          </Nav.Link> */}
+          </Nav.Link>
         </Nav>
         
         <Navbar.Collapse className="justify-content-end">

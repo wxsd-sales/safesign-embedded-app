@@ -19,7 +19,7 @@ function App(props) {
     <div className="App">
       <MyNav></MyNav>
       <Router>
-        <LandingPage path='/' ></LandingPage>
+        <LandingPage path='/'></LandingPage>
         <FamilyForm path='/nda/'></FamilyForm>      
         <SigningDone path='/signingDone/' ></SigningDone>
         <AdminPage path='/admin/'></AdminPage>

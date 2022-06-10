@@ -4,6 +4,8 @@ import {Row, Col, Card, Form, Button, Spinner, Alert, ListGroup} from 'react-boo
 class InputForm extends React.Component {
 
   constructor(props) {
+    console.log("input form");
+    console.log(props)
     super(props);
     this.state = {
       showFillAlert: false,

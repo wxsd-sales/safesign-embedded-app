@@ -88,6 +88,8 @@ class FamilyForm extends React.Component {
       })
       .then(res => {
         if (res.ok) {
+          console.log("RES --- run signing 'then");
+          console.log(res);
           return res.json();
         } else {
           throw new Error('Signing input not accepted');
