@@ -16,10 +16,13 @@ const express = require('express')
 , database = require('./database')
 , cors = require('cors');
 
+
+
 const PORT = process.env.PORT || 3001
   , HOST = process.env.HOST || 'localhost'
   , max_session_min = 180;
 let hostUrl = 'http://' + HOST + ':' + PORT;
+
 
 const app = express()
   .use(helmet())
@@ -52,6 +55,15 @@ const app = express()
   .use(cors());
 
 
+// const server = require('http').createServer(app);
+// const io = require('socket.io')(server, {
+//   cors: {
+//     origin: "http://localhost:3000",
+//     methods: ["GET", "POST"]
+//   }
+// })
+
+
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
@@ -61,6 +73,20 @@ app.post("/api/login", (req, res, next) => {
 });
 
 app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "user"));
+
+app.post("/api/webhook", (req, res) => {
+
+  // io.on("connection", (socket) => {
+  //   socket.emit("webhook-data", req.body.data.envelopeSummary);
+  //   socket.on("from-server", (arg) => {
+  //     console.log(arg)
+  //   });
+  // })
+  res.status(200)
+  res.send(req.body.data.envelopeSummary);
+  res.send("webhook received")
+  
+});
 
 // handles submitting a form and putting data to a database collection
 async function handleFormSubmission(req, res, next, docType, collectionName) {
