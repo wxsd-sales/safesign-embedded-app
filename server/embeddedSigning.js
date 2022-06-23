@@ -106,6 +106,37 @@ eg001EmbeddedSigning.worker = async (args) => {
 
     return ({ envelopeId: envelopeId, redirectUrl: results.url })
 }
+/* --------------------------------------------------------------------------------------- */
+// eg003ListEnvelopes.worker = async (args) => {
+    
+//     let dsApiClient = new docusign.ApiClient();
+//     dsApiClient.setBasePath(args.basePath);
+//     dsApiClient.addDefaultHeader('Authorization', 'Bearer ' + args.accessToken);
+//     let envelopesApi = new docusign.EnvelopesApi(dsApiClient)
+//       , results = null;
+
+//     // List the envelopes
+//     // The Envelopes::listStatusChanges method has many options
+//     // See https://developers.docusign.com/esign-rest-api/reference/Envelopes/Envelopes/listStatusChanges
+
+//     // The list status changes call requires at least a from_date OR
+//     // a set of envelopeIds. Here we filter using a from_date.
+//     // Here we set the from_date to filter envelopes for the last month
+//     // Use ISO 8601 date format
+//     let options = {fromDate: moment().subtract(30, 'days').format()};
+
+//     // Exceptions will be caught by the calling function
+//     results = await envelopesApi.listStatusChanges(args.accountId, options);
+
+//     console.log("-------------------------------------------------------------------------------------");
+//     console.log("ENVELOPE STATUS CHANGE");
+//     console.log(results);
+//     return results;
+// }
+
+
+/* --------------------------------------------------------------------------------------- */
+
 
 /**
  * Creates envelope

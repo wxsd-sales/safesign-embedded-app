@@ -32,6 +32,7 @@
     "fs": "0.0.1-security",
     "fs-extra": "^6.0.1",
     "helmet": "^3.18.0",
+    "http": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "memorystore": "^1.6.1",
     "moment": "^2.24.0",
@@ -42,6 +43,8 @@
     "passport-docusign": "^1.1.0",
     "path": "^0.12.7",
     "react-bootstrap": "^1.6.1",
+    "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1",
     "stream": "0.0.2",
     "validator": "^10.11.0"
   }

@@ -55,13 +55,13 @@ const app = express()
   .use(cors());
 
 
-// const server = require('http').createServer(app);
-// const io = require('socket.io')(server, {
-//   cors: {
-//     origin: "http://localhost:3000",
-//     methods: ["GET", "POST"]
-//   }
-// })
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"]
+  }
+})
 
 
 // Have Node serve the files for our built React app
@@ -73,20 +73,28 @@ app.post("/api/login", (req, res, next) => {
 });
 
 app.post('/api/eg001/family', (req, res, next) => handleFormSubmission(req, res, next, documents.NDA, "user"));
-
 app.post("/api/webhook", (req, res) => {
+  console.log("--------------------------------------------------------------------")
+  console.log(req.body.event);
+  console.log(req.body.data.envelopeSummary.recipients.signers[0].sentDateTime);
+  console.log(req.body.data.envelopeSummary.recipients.signers[0].signatureInfo.signatureName);
 
-  // io.on("connection", (socket) => {
-  //   socket.emit("webhook-data", req.body.data.envelopeSummary);
-  //   socket.on("from-server", (arg) => {
-  //     console.log(arg)
-  //   });
-  // })
+  let name = req.body.data.envelopeSummary.recipients.signers[0].signatureInfo.signatureName;
+  let event = req.body.event;
+  let date = req.body.data.envelopeSummary.recipients.signers[0].sentDateTime
+
+  io.emit("webhook-envelope-status", { event: event, signerName: name, date: date })
+  //io.emit("webhook-data-event", req.body.event);
   res.status(200)
-  res.send(req.body.data.envelopeSummary);
-  res.send("webhook received")
-  
+  //res.send(req.body.data)
+  res.send("webhook received " + name + " for " + event)
 });
+
+io.on("connection", (socket) => {
+  socket.on("from-server", (arg) => {
+    console.log(arg)
+  });
+})
 
 // handles submitting a form and putting data to a database collection
 async function handleFormSubmission(req, res, next, docType, collectionName) {
@@ -154,7 +162,11 @@ if (!dsConfig.allowSilentAuthentication) {
 }
 passport.use(docusignStrategy);
 
-app.listen(PORT, () => {
+// app.listen(PORT, () => {
+//   console.log(`Server listening on ${PORT}`);
+// });
+
+server.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
-});
+}); 
 

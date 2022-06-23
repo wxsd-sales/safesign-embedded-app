@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://safesign-server.wbx.ninja',
+      target: 'http://localhost:3001',
       changeOrigin: true,
     })
   );

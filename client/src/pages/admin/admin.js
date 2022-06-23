@@ -1,8 +1,23 @@
 import React from "react"
 import { FormControl, InputGroup, Button, Container, Row, Col } from "react-bootstrap";
+import { io } from "socket.io-client";
 
+const socket = io("ws://localhost:3001")
+
+// socket.on("webhook-data", (arg) => {
+//   console.log("Admin Page - Data from server");
+//   console.log(arg);
+// })
+
+socket.on("webhook-envelope-status", ({ event, signerName, date }) => {
+  console.log("------------------------------");
+  console.log(event)
+  console.log(signerName)
+  console.log(date);
+})
+
+socket.emit("from-server", "CLIENT TO SERVER")
 class AdminPage extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +30,7 @@ class AdminPage extends React.Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+
 
   handleLogin(event) {
     try {
@@ -57,9 +73,7 @@ class AdminPage extends React.Component {
     });
   }
 
-  
-  render() {
-    
+  render() { 
     if (this.state.authenticated) {
       return  (
         <Container id="">
@@ -73,7 +87,6 @@ class AdminPage extends React.Component {
         </Container>
       )
     } else {
-      //admin password as 1234 with placeholder
       return (
         <Container id="">
           <Row>
